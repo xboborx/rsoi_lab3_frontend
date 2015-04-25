@@ -4,12 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def current_user
-   #if session[:user_key]
-   #   usersession = Usersession.find(session[:user_key])
-
+     begin
       @current_user ||= User.find(Usersession.find(session[:user_key]).user_id) if session[:user_key]
-  #end
+     rescue ActiveResource::ResourceNotFound
+       redirect_to '/logout'
+     end
   end
+
+
   helper_method :current_user
 
   def authorize

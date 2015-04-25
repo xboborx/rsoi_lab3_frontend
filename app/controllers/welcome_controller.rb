@@ -2,31 +2,10 @@ class WelcomeController < ApplicationController
   before_filter :authorize
 
   def index
-    #car = Car.all
-    brand = Brand.all
-
-    # Car by id
-    # Car.get(1)
-
-    # Cars by array of id
-    # car= Car.get(:byid, :id => [1, 3])
-
-    # Delete
-
-    #p car.as_json
-    arr = [1,  3]
-    #p brand= Brand.find(1)
-
-    #brand.destroy
 
     @cars = getAllCars
 
     @brands = getAllBrands
-
-
-
-    #render :json => brand.as_json
-
   end
 
   def car

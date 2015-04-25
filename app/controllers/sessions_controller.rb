@@ -8,8 +8,6 @@ class SessionsController < ApplicationController
 
     uri = URI(SESSION + "validate")
     res = Net::HTTP.post_form(uri, params)
-    puts res.body
-    puts res.code
 
     h= JSON.parse res.body
 
@@ -22,7 +20,6 @@ class SessionsController < ApplicationController
       usersession.save
 
       session[:user_key] = usersession.key
-      p session[:user_key]
       redirect_to '/'
     end
 
