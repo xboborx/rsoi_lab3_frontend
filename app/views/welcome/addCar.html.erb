@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_tag 'http://localhost:3001/cars', class: "form-horizontal" do %>
+  <%= form_tag CARS + "cars", class: "form-horizontal" do %>
       <fieldset>
         <div class="form-group">
           <%= label_tag(:model, "Модель", class: 'col-lg-2 control-label') %>

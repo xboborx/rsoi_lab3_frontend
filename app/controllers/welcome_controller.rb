@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  before_filter :authorize
+
   def index
     #car = Car.all
     brand = Brand.all
